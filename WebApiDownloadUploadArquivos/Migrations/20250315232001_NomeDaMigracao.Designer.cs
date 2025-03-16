@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApiDownloadUploadArquivos.Data;
 
@@ -11,9 +12,11 @@ using WebApiDownloadUploadArquivos.Data;
 namespace WebApiDownloadUploadArquivos.Migrations
 {
     [DbContext(typeof(FileServerContext))]
-    partial class FileServerContextModelSnapshot : ModelSnapshot
+    [Migration("20250315232001_NomeDaMigracao")]
+    partial class NomeDaMigracao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

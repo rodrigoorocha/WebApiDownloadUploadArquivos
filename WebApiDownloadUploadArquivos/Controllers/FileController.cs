@@ -19,14 +19,11 @@ namespace WebApiDownloadUploadArquivos.Controllers
             _fileService = fileService;
         }
 
-
         // Método de Upload
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile([FromForm] IFormFile file, [FromForm] UploadDto uploadDto )
         {
-
             var result = await _fileService.UploadFileAsync(file, uploadDto);
-
             return Ok(result);
         }
 
@@ -34,7 +31,6 @@ namespace WebApiDownloadUploadArquivos.Controllers
         [HttpGet("download/{fileName}")]
         public async Task<IActionResult> DownloadFile(string fileName)
         {
-
             var result = await _fileService.DownloadFileAsync(fileName);
 
             // Verifica se o resultado foi bem-sucedido
@@ -53,7 +49,6 @@ namespace WebApiDownloadUploadArquivos.Controllers
             }
 
             return File(fileBytes, "application/octet-stream", fileName);
-
         }
 
         private string GetContentType(string path)
